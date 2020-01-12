@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-3B3H8DR\SQLEXPRESS;Initial Catalog=db;Integrated Security=True" SettingsObjectName="WpfApp16.Properties.Settings" SettingsPropertyName="dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.etudiant" Member="etudiant">
+    <Type Name="etudiant">
+      <Column Name="cne" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dateNaiss" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tof" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="id_filiere" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="filiere_etudiant" Member="filiere" ThisKey="id_filiere" OtherKey="id_filiere" Type="filiere" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.filiere" Member="filiere">
+    <Type Name="filiere">
+      <Column Name="id_filiere" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom_filiere" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="resp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="filiere_etudiant" Member="etudiant" ThisKey="id_filiere" OtherKey="id_filiere" Type="etudiant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.admin" Member="admin">
+    <Type Name="admin">
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
